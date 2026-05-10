@@ -1,2 +1,5 @@
 name = "ric-blog"
-pages_build_output_dir = "dist"
+compatibility_date = "2025-01-01"
+
+[site]
+bucket = "./dist"

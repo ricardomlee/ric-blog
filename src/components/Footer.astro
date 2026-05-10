@@ -1,8 +1,13 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { SITE } from "@/config";
 import Socials from "./Socials.astro";
 
+const sinceYear = SITE.since;
 const currentYear = new Date().getFullYear();
+const copyrightYear = sinceYear && sinceYear !== currentYear
+  ? `${sinceYear} - ${currentYear}`
+  : `${currentYear}`;
 
 type Props = {
   noMarginTop?: boolean;
@@ -24,7 +29,7 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
   >
     <Socials />
     <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>Copyright &#169; {currentYear}</span>
+      <span>Copyright &#169; {copyrightYear} {SITE.author}</span>
       <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
       <span>All rights reserved.</span>
     </div>

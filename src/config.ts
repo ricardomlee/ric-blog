@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://ricli.tech/",
   author: "Ric Li",
   profile: "https://ricli.tech/",
-  desc: "Exploring AI, Rust, and Distributed Systems",
+  desc: "TTG awesome site.",
   title: "Ric's Blog",
   ogImage: "og.png",
   lightAndDarkMode: true,
@@ -20,4 +20,8 @@ export const SITE = {
   dir: "ltr",
   lang: "zh-CN",
   timezone: "Asia/Shanghai",
+  since: 2021,
+  socialLink: "https://twitter.com/ric_m_li",
+  linkedin: "ric_ming_li",
+  email: "ricmli@outlook.com",
 } as const;
