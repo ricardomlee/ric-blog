@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { SITE } from "@/config";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .filter(p => !p.id.startsWith("resume"))
+  .slice(0, SITE.postPerIndex);
+---
+
+<Layout title={SITE.title} description={SITE.desc}>
+  <Header />
+  <Main>
+    <h1 class="text-2xl font-semibold sm:text-3xl">Welcome</h1>
+    <p class="mt-2 mb-6 italic">Exploring AI, Rust, and Distributed Systems</p>
+    <ul>
+      {posts.map(post => (
+        <Card {...post} />
+      ))}
+    </ul>
+    <div class="mt-8 text-center">
+      <a href="/posts" class="text-accent font-medium hover:underline">
+        View all posts →
+      </a>
+    </div>
+  </Main>
+  <Footer />
+</Layout>

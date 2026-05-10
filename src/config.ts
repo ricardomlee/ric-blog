@@ -1,0 +1,23 @@
+export const SITE = {
+  website: "https://ricli.tech/",
+  author: "Ric Li",
+  profile: "https://ricli.tech/",
+  desc: "Exploring AI, Rust, and Distributed Systems",
+  title: "Ric's Blog",
+  ogImage: "og.png",
+  lightAndDarkMode: true,
+  postPerIndex: 4,
+  postPerPage: 10,
+  scheduledPostMargin: 15 * 60 * 1000,
+  showArchives: true,
+  showBackButton: true,
+  editPost: {
+    enabled: false,
+    text: "Edit page",
+    url: "https://github.com/ricardomlee/ric-hugo/edit/main/",
+  },
+  dynamicOgImage: true,
+  dir: "ltr",
+  lang: "zh-CN",
+  timezone: "Asia/Shanghai",
+} as const;
