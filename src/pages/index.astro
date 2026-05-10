@@ -7,7 +7,7 @@ import Footer from "@/components/Footer.astro";
 import Card from "@/components/Card.astro";
 import { SITE } from "@/config";
 
-const posts = (await getCollection("blog", ({ data }) => !data.draft))
+const posts = (await getCollection("blog"))
   .filter(p => !p.id.startsWith("resume"))
   .slice(0, SITE.postPerIndex);
 ---
