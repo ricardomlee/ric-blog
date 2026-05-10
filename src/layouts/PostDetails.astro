@@ -124,15 +124,13 @@ const nextPost =
 
     <!-- Utterances Comments -->
     <div id="utterances-thread" class="my-8">
-      <script
-        is:inline
-        src="https://utteranc.es/client.js"
+      <Fragment set:html={`<script src="https://utteranc.es/client.js"
         repo="ricardomlee/utterances"
         issue-term="pathname"
         theme="github-light"
         crossorigin="anonymous"
         label="comment"
-      />
+      ></script>`} />
     </div>
 
     <BackToTopButton />
