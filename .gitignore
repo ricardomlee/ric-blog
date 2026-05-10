@@ -25,4 +25,6 @@ pnpm-debug.log*
 
 # pagefind
 
-public/pagefind
+public/pagefindnode_modules/
+.astro/
+dist/
