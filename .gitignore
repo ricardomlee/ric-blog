@@ -28,3 +28,4 @@ pnpm-debug.log*
 public/pagefindnode_modules/
 .astro/
 dist/
+public/pagefind/
