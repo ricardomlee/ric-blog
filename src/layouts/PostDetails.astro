@@ -289,8 +289,29 @@ const nextPost =
   }
   attachCopyButtons();
 
+  // Mermaid Diagrams
+  if (document.querySelector(".mermaid")) {
+    import("mermaid").then(({ default: mermaid }) => {
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "default",
+      });
+      mermaid.run();
+    });
+  }
+
   /* Go to page start after page swap */
-  document.addEventListener("astro:after-swap", () =>
-    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
-  );
+  document.addEventListener("astro:after-swap", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+    // Re-render mermaid on page swap (view transitions)
+    if (document.querySelector(".mermaid")) {
+      import("mermaid").then(({ default: mermaid }) => {
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "default",
+        });
+        mermaid.run();
+      });
+    }
+  });
 </script>
